@@ -46,7 +46,6 @@ function MainApp() {
           </div>
         )}
 
-        {/* Loaded Dashboard Layout */}
         {!loading && !error && weatherData && (
           <div className="dashboard-grid-layout">
             <div className="dashboard-top-row">

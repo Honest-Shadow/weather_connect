@@ -1,4 +1,3 @@
-/* Layout */
 .app-wrapper {
   min-height: 100vh;
   display: flex;
@@ -16,19 +15,19 @@
 .dashboard-footer {
   text-align: center;
   padding: 24px 16px;
-  color: lightgray;
-  font-size: 14px;
-  border-top: 1px solid steelblue;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border-color);
   margin-top: 32px;
 }
 
-/* Navigation Bar */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: navy;
-  border-bottom: 1px solid steelblue;
+  background-color: rgba(11, 19, 41, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .navbar-container {
@@ -46,14 +45,15 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  user-select: none;
 }
 
 .brand-logo-img {
   width: 40px;
   height: 40px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   object-fit: cover;
-  border: 1px solid steelblue;
+  border: 1px solid var(--border-color);
 }
 
 .brand-text-block {
@@ -62,17 +62,17 @@
 }
 
 .brand-title {
-  font-weight: bold;
-  font-size: 16px;
-  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.8px;
+  color: var(--text-main);
 }
 
 .brand-tagline {
-  font-size: 12px;
-  color: lightgray;
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }
 
-/* Search Box */
 .search-wrapper {
   position: relative;
   flex: 1;
@@ -83,49 +83,51 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: midnightblue;
-  border: 1px solid steelblue;
-  border-radius: 25px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
   padding: 8px 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.search-input-box:hover {
-  border-color: deepskyblue;
+.search-input-box:focus-within {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
 }
 
 .search-input-box input {
   background: transparent;
   border: none;
   width: 100%;
-  font-size: 14px;
-  color: white;
+  font-size: 0.9rem;
+  color: var(--text-main);
 }
 
 .search-input-box input::placeholder {
-  color: gray;
+  color: var(--text-dim);
 }
 
 .clear-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: lightgray;
+  color: var(--text-muted);
+  transition: color 0.15s;
 }
 
 .clear-btn:hover {
-  color: white;
+  color: var(--text-main);
 }
 
-/* Search Dropdown */
 .search-dropdown {
   position: absolute;
-  top: 48px;
+  top: calc(100% + 8px);
   left: 0;
   right: 0;
-  background-color: navy;
-  border: 1px solid steelblue;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px black;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
   z-index: 100;
   max-height: 340px;
   overflow-y: auto;
@@ -135,8 +137,8 @@
 .dropdown-message {
   padding: 14px;
   text-align: center;
-  font-size: 14px;
-  color: lightgray;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 .dropdown-section {
@@ -144,10 +146,11 @@
 }
 
 .dropdown-label {
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  color: gray;
+  letter-spacing: 0.6px;
+  color: var(--text-dim);
   padding: 4px 8px;
   display: block;
 }
@@ -156,23 +159,24 @@
   display: flex;
   flex-direction: column;
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: background-color 0.15s;
 }
 
 .dropdown-item:hover {
-  background-color: darkslateblue;
+  background-color: var(--bg-card-hover);
 }
 
 .dropdown-city-name {
-  font-weight: bold;
-  font-size: 15px;
-  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-main);
 }
 
 .dropdown-city-sub {
-  font-size: 13px;
-  color: lightgray;
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .recent-chips {
@@ -183,21 +187,21 @@
 }
 
 .recent-chip {
-  background-color: midnightblue;
-  border: 1px solid steelblue;
-  border-radius: 20px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
   padding: 4px 12px;
-  font-size: 13px;
-  color: lightgray;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: all 0.15s;
 }
 
 .recent-chip:hover {
-  border-color: deepskyblue;
-  color: white;
-  background-color: darkslateblue;
+  border-color: var(--accent-blue);
+  color: var(--text-main);
+  background-color: var(--bg-card-hover);
 }
 
-/* Navbar Buttons & Controls */
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -206,24 +210,26 @@
 
 .unit-toggle {
   display: flex;
-  background-color: midnightblue;
-  border: 1px solid steelblue;
-  border-radius: 20px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
   padding: 3px;
   cursor: pointer;
+  user-select: none;
 }
 
 .unit-pill {
   padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: bold;
-  color: lightgray;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.2s;
 }
 
 .unit-pill.active {
-  background-color: deepskyblue;
-  color: midnightblue;
+  background-color: var(--accent-blue);
+  color: #0b1329;
 }
 
 .saved-cities-btn,
@@ -231,35 +237,37 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: midnightblue;
-  border: 1px solid steelblue;
-  border-radius: 20px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
   padding: 7px 14px;
-  font-size: 14px;
-  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-main);
+  transition: all 0.2s;
 }
 
 .saved-cities-btn:hover,
 .settings-btn:hover {
-  border-color: deepskyblue;
-  background-color: darkslateblue;
+  border-color: var(--accent-blue);
+  background-color: var(--bg-card-hover);
 }
 
 .saved-count {
-  background-color: gold;
-  color: black;
-  font-weight: bold;
-  font-size: 12px;
-  border-radius: 20px;
+  background-color: var(--accent-gold);
+  color: #0b1329;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: var(--radius-full);
   padding: 1px 7px;
 }
 
-/* Loading & Error States */
+
 .loading-state-card,
 .error-state-card {
-  background-color: darkslateblue;
-  border: 1px solid steelblue;
-  border-radius: 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 48px 24px;
   text-align: center;
   max-width: 480px;
@@ -273,39 +281,40 @@
 .spinner-sm {
   width: 36px;
   height: 36px;
-  border: 3px solid steelblue;
-  border-top-color: deepskyblue;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--accent-blue);
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 0.8s linear infinite;
 }
 
 .loading-state-card h3,
 .error-state-card h3 {
-  font-size: 20px;
-  color: white;
+  font-size: 1.25rem;
+  color: var(--text-main);
 }
 
 .loading-state-card p,
 .error-state-card p {
-  font-size: 14px;
-  color: lightgray;
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
 .retry-btn {
   margin-top: 12px;
-  background-color: deepskyblue;
-  color: midnightblue;
-  font-weight: bold;
+  background-color: var(--accent-blue);
+  color: #0b1329;
+  font-weight: 600;
   padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
 }
 
 .retry-btn:hover {
-  background-color: dodgerblue;
+  background-color: var(--accent-blue-hover);
 }
 
-/* Dashboard Layout */
+
 .dashboard-grid-layout {
   display: flex;
   flex-direction: column;
@@ -324,18 +333,18 @@
 }
 
 .section-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
 }
 
-/* Hero Weather Card */
+
 .hero-card {
-  background-color: darkslateblue;
-  border: 1px solid steelblue;
-  border-radius: 16px;
+  background: linear-gradient(135deg, #152238 0%, #1e3a5f 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 28px;
-  box-shadow: 0 4px 10px black;
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -357,25 +366,25 @@
 }
 
 .city-name {
-  font-size: 36px;
-  font-weight: bold;
-  color: white;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-main);
   line-height: 1.1;
 }
 
 .country-badge {
-  background-color: navy;
-  color: deepskyblue;
-  border: 1px solid deepskyblue;
-  font-size: 12px;
-  font-weight: bold;
+  background-color: rgba(56, 189, 248, 0.15);
+  color: var(--accent-blue);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  font-size: 0.75rem;
+  font-weight: 700;
   padding: 2px 8px;
-  border-radius: 20px;
+  border-radius: var(--radius-full);
 }
 
 .city-subtitle {
-  color: lightgray;
-  font-size: 14px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
   margin-top: 6px;
 }
 
@@ -383,24 +392,24 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background-color: navy;
-  border: 1px solid steelblue;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
   padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  color: white;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  color: var(--text-main);
+  transition: all 0.2s;
 }
 
 .save-city-btn:hover {
-  background-color: darkslateblue;
-  border-color: gold;
-  color: gold;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-gold);
 }
 
 .save-city-btn.saved {
-  border-color: gold;
-  color: gold;
-  background-color: navy;
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background-color: rgba(245, 158, 11, 0.1);
 }
 
 .hero-body {
@@ -423,15 +432,16 @@
 }
 
 .temp-value {
-  font-size: 70px;
-  font-weight: bold;
-  color: white;
+  font-size: 4.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -2px;
 }
 
 .temp-unit-symbol {
-  font-size: 28px;
-  font-weight: bold;
-  color: deepskyblue;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent-blue);
   margin-top: 8px;
   margin-left: 4px;
 }
@@ -440,38 +450,38 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 16px;
-  color: white;
+  font-size: 1.05rem;
+  color: var(--text-main);
 }
 
 .condition-text {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .separator {
-  color: gray;
+  color: var(--text-dim);
 }
 
 .feels-like-text {
-  color: lightgray;
-  font-size: 14px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 .high-low-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: navy;
+  background-color: rgba(0, 0, 0, 0.25);
   padding: 4px 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  color: lightgray;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-muted);
   width: fit-content;
   margin-top: 4px;
 }
 
 .high-low-badge .divider {
-  color: gray;
+  color: var(--text-dim);
 }
 
 .hero-icon-container {
@@ -481,16 +491,16 @@
   padding: 8px;
 }
 
-/* 5-Day Forecast Card */
+
 .forecast-card {
-  background-color: darkslateblue;
-  border: 1px solid steelblue;
-  border-radius: 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow: 0 4px 10px black;
+  box-shadow: var(--shadow-sm);
 }
 
 .forecast-list {
@@ -505,16 +515,17 @@
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s;
 }
 
 .forecast-row:hover {
-  background-color: navy;
+  background-color: var(--bg-card-hover);
 }
 
 .forecast-row.is-today {
-  background-color: navy;
-  border-left: 4px solid deepskyblue;
+  background-color: rgba(56, 189, 248, 0.08);
+  border-left: 3px solid var(--accent-blue);
 }
 
 .day-col {
@@ -523,14 +534,14 @@
 }
 
 .day-name {
-  font-weight: bold;
-  font-size: 14px;
-  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
 }
 
 .day-date {
-  font-size: 12px;
-  color: lightgray;
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }
 
 .condition-col {
@@ -545,14 +556,14 @@
 }
 
 .condition-desc {
-  font-size: 14px;
-  color: white;
-  font-weight: bold;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 500;
 }
 
 .rain-chance {
-  font-size: 12px;
-  color: deepskyblue;
+  font-size: 0.75rem;
+  color: var(--accent-blue);
 }
 
 .temp-range-col {
@@ -564,25 +575,25 @@
 
 .temp-min,
 .temp-max {
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 0.85rem;
+  font-weight: 600;
   width: 30px;
   text-align: center;
 }
 
 .temp-min {
-  color: lightgray;
+  color: var(--text-muted);
 }
 
 .temp-max {
-  color: white;
+  color: var(--text-main);
 }
 
 .range-track {
   flex: 1;
   height: 6px;
-  background-color: navy;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
   position: relative;
   overflow: hidden;
 }
@@ -591,17 +602,17 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  background-color: deepskyblue;
-  border-radius: 10px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+  border-radius: var(--radius-full);
 }
 
-/* Hourly Forecast Card */
+
 .hourly-card {
-  background-color: darkslateblue;
-  border: 1px solid steelblue;
-  border-radius: 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 24px;
-  box-shadow: 0 4px 10px black;
+  box-shadow: var(--shadow-sm);
 }
 
 .hourly-header {
@@ -614,8 +625,8 @@
 }
 
 .section-subtitle {
-  font-size: 13px;
-  color: lightgray;
+  font-size: 0.8rem;
+  color: var(--text-muted);
   display: block;
   margin-top: 2px;
 }
@@ -624,29 +635,29 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: navy;
-  border: 1px solid steelblue;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
   padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
 }
 
 .pill-time {
-  color: lightgray;
+  color: var(--text-muted);
 }
 
 .pill-temp {
-  font-weight: bold;
-  color: deepskyblue;
+  font-weight: 700;
+  color: var(--accent-blue);
 }
 
 .pill-desc {
-  color: white;
+  color: var(--text-main);
 }
 
 .pill-rain {
-  color: deepskyblue;
-  font-size: 13px;
+  color: var(--accent-blue);
+  font-size: 0.8rem;
 }
 
 .svg-container {
@@ -675,34 +686,35 @@
   gap: 6px;
   min-width: 62px;
   padding: 8px 6px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid transparent;
   cursor: pointer;
+  transition: all 0.15s;
 }
 
 .hour-item:hover,
 .hour-item.hovered {
-  background-color: navy;
-  border-color: steelblue;
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-color);
 }
 
 .hour-item.active-hour {
-  background-color: navy;
-  border-color: deepskyblue;
+  background-color: rgba(56, 189, 248, 0.12);
+  border-color: var(--accent-blue);
 }
 
 .hour-time {
-  font-size: 12px;
-  color: lightgray;
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }
 
 .hour-temp {
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
 }
 
-/* Weather Metrics Grid */
+
 .metrics-section {
   display: flex;
   flex-direction: column;
@@ -711,20 +723,20 @@
 
 .bento-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
 }
 
 .bento-card {
-  background-color: darkslateblue;
-  border: 1px solid steelblue;
-  border-radius: 12px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
   padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 14px;
-  box-shadow: 0 4px 10px black;
+  box-shadow: var(--shadow-sm);
 }
 
 .card-header {
@@ -734,10 +746,11 @@
 }
 
 .card-title {
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 0.82rem;
+  font-weight: 600;
   text-transform: uppercase;
-  color: lightgray;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
 }
 
 .card-body {
@@ -747,16 +760,16 @@
 }
 
 .card-value {
-  font-size: 28px;
-  font-weight: bold;
-  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
   line-height: 1.1;
 }
 
 .unit-small {
-  font-size: 14px;
-  font-weight: normal;
-  color: lightgray;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
 }
 
 .compass-row {
@@ -768,27 +781,29 @@
 
 .compass-arrow {
   display: inline-block;
-  font-size: 13px;
-  color: deepskyblue;
+  font-size: 0.8rem;
+  color: var(--accent-blue);
+  transition: transform 0.3s ease;
 }
 
 .card-subtext {
-  font-size: 13px;
-  color: lightgray;
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .progress-track {
   width: 100%;
   height: 6px;
-  background-color: navy;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
   overflow: hidden;
   margin-top: 4px;
 }
 
 .progress-fill {
   height: 100%;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
 }
 
 .badge-row {
@@ -800,17 +815,17 @@
 }
 
 .status-pill {
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 0.75rem;
+  font-weight: 600;
   padding: 2px 8px;
-  border-radius: 10px;
+  border-radius: var(--radius-full);
 }
 
 .pollutants-row {
   display: flex;
   gap: 12px;
-  font-size: 12px;
-  color: lightgray;
+  font-size: 0.75rem;
+  color: var(--text-muted);
   margin-top: 4px;
 }
 
@@ -829,49 +844,49 @@
 
 .sun-label {
   display: block;
-  font-size: 12px;
-  color: lightgray;
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }
 
 .sun-time {
   display: block;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
 }
 
 .sun-divider {
   width: 1px;
   height: 32px;
-  background-color: steelblue;
+  background-color: var(--border-color);
 }
 
-/* Modals */
+
 .modal-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   padding: 16px;
+  animation: fadeIn 0.2s ease-out;
 }
 
 .modal-container {
-  background-color: darkslateblue;
-  border: 1px solid steelblue;
-  border-radius: 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   width: 100%;
   max-width: 520px;
   max-height: 85vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 16px black;
+  box-shadow: var(--shadow-md);
   overflow: hidden;
+  animation: scaleUp 0.2s ease-out;
 }
 
 .modal-header {
@@ -879,7 +894,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 20px;
-  border-bottom: 1px solid steelblue;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .modal-title-row {
@@ -889,18 +904,18 @@
 }
 
 .modal-title-row h2 {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
 }
 
 .saved-badge {
-  background-color: gold;
-  color: black;
-  font-weight: bold;
-  font-size: 12px;
+  background-color: var(--accent-gold);
+  color: #0b1329;
+  font-weight: 700;
+  font-size: 0.8rem;
   padding: 1px 7px;
-  border-radius: 20px;
+  border-radius: var(--radius-full);
 }
 
 .close-btn {
@@ -909,13 +924,14 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border-radius: 20px;
-  color: lightgray;
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  transition: all 0.2s;
 }
 
 .close-btn:hover {
-  background-color: navy;
-  color: white;
+  background-color: var(--bg-card-hover);
+  color: var(--text-main);
 }
 
 .modal-body {
@@ -934,30 +950,31 @@
   text-align: center;
   gap: 10px;
   padding: 32px 16px;
-  color: lightgray;
+  color: var(--text-muted);
 }
 
 .empty-state h3 {
-  color: white;
-  font-size: 18px;
+  color: var(--text-main);
+  font-size: 1.1rem;
 }
 
 .empty-state p {
-  font-size: 14px;
+  font-size: 0.85rem;
 }
 
 .save-current-btn {
   margin-top: 8px;
-  background-color: deepskyblue;
-  color: midnightblue;
-  font-weight: bold;
+  background-color: var(--accent-blue);
+  color: #0b1329;
+  font-weight: 600;
   padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
 }
 
 .save-current-btn:hover {
-  background-color: dodgerblue;
+  background-color: var(--accent-blue-hover);
 }
 
 .saved-list {
@@ -971,20 +988,21 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 14px;
-  background-color: navy;
-  border: 1px solid steelblue;
-  border-radius: 12px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .saved-card:hover {
-  border-color: deepskyblue;
-  background-color: darkslateblue;
+  border-color: var(--accent-blue);
+  background-color: var(--bg-card-hover);
 }
 
 .saved-card.active-city {
-  border-color: deepskyblue;
-  background-color: midnightblue;
+  border-color: var(--accent-blue);
+  background-color: rgba(56, 189, 248, 0.08);
 }
 
 .saved-card-info {
@@ -1000,23 +1018,23 @@
 }
 
 .saved-city-name {
-  font-weight: bold;
-  font-size: 16px;
-  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-main);
 }
 
 .active-tag {
-  font-size: 11px;
-  background-color: deepskyblue;
-  color: midnightblue;
-  font-weight: bold;
+  font-size: 0.7rem;
+  background-color: var(--accent-blue);
+  color: #0b1329;
+  font-weight: 700;
   padding: 1px 6px;
-  border-radius: 20px;
+  border-radius: var(--radius-full);
 }
 
 .saved-city-region {
-  font-size: 13px;
-  color: lightgray;
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .saved-card-right {
@@ -1026,13 +1044,13 @@
 }
 
 .saved-temp {
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
 }
 
 .loading-mini {
-  color: lightgray;
+  color: var(--text-muted);
 }
 
 .delete-city-btn {
@@ -1041,13 +1059,14 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  border-radius: 20px;
-  color: lightgray;
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  transition: all 0.2s;
 }
 
 .delete-city-btn:hover {
-  background-color: darkred;
-  color: white;
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--accent-red);
 }
 
 .settings-group {
@@ -1055,7 +1074,7 @@
   flex-direction: column;
   gap: 8px;
   padding-bottom: 14px;
-  border-bottom: 1px solid steelblue;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .settings-group:last-child {
@@ -1064,10 +1083,11 @@
 }
 
 .settings-label {
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 0.82rem;
+  font-weight: 600;
   text-transform: uppercase;
-  color: lightgray;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
 }
 
 .settings-toggle-row {
@@ -1078,29 +1098,31 @@
 .toggle-choice {
   flex: 1;
   padding: 8px 12px;
-  background-color: navy;
-  border: 1px solid steelblue;
-  border-radius: 8px;
-  font-size: 14px;
-  color: lightgray;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all 0.2s;
   text-align: center;
 }
 
 .toggle-choice:hover {
-  border-color: deepskyblue;
-  color: white;
+  border-color: var(--accent-blue);
+  color: var(--text-main);
 }
 
 .toggle-choice.selected {
-  background-color: midnightblue;
-  border-color: deepskyblue;
-  color: deepskyblue;
-  font-weight: bold;
+  background-color: rgba(56, 189, 248, 0.15);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  font-weight: 700;
 }
 
 .settings-hint {
-  font-size: 12px;
-  color: gray;
+  font-size: 0.75rem;
+  color: var(--text-dim);
 }
 
 .api-list {
@@ -1113,11 +1135,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 0.85rem;
   padding: 8px 12px;
-  background-color: navy;
-  border-radius: 8px;
-  border: 1px solid steelblue;
+  background-color: var(--bg-input);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
 }
 
 .status-dot {
@@ -1129,87 +1151,101 @@
 }
 
 .status-dot.online {
-  background-color: forestgreen;
+  background-color: var(--accent-green);
+  box-shadow: 0 0 6px var(--accent-green);
 }
 
 .api-name {
   flex: 1;
-  color: white;
+  color: var(--text-main);
 }
 
 .api-tag {
-  font-size: 11px;
-  color: forestgreen;
-  font-weight: bold;
+  font-size: 0.7rem;
+  color: var(--accent-green);
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .storage-stats {
   display: flex;
   gap: 16px;
-  font-size: 14px;
-  color: lightgray;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 .storage-stats strong {
-  color: white;
+  color: var(--text-main);
 }
 
 .clear-history-btn {
   align-self: flex-start;
   margin-top: 4px;
   padding: 6px 14px;
-  background-color: navy;
-  border: 1px solid crimson;
-  border-radius: 8px;
-  color: crimson;
-  font-size: 13px;
-  font-weight: bold;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--accent-red);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s;
 }
 
 .clear-history-btn:hover {
-  background-color: crimson;
-  color: white;
+  background-color: rgba(239, 68, 68, 0.2);
 }
 
 .modal-footer {
   padding: 14px 20px;
-  border-top: 1px solid steelblue;
+  border-top: 1px solid var(--border-color);
   display: flex;
   justify-content: flex-end;
 }
 
 .done-btn {
   padding: 8px 24px;
-  background-color: deepskyblue;
-  color: midnightblue;
-  font-weight: bold;
-  border-radius: 8px;
-  font-size: 14px;
+  background-color: var(--accent-blue);
+  color: #0b1329;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
 }
 
 .done-btn:hover {
-  background-color: dodgerblue;
+  background-color: var(--accent-blue-hover);
 }
 
-/* Spinner Animation */
+
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
   to {
     transform: rotate(360deg);
   }
 }
 
-/* Responsive Media Queries */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @media (max-width: 900px) {
   .dashboard-top-row {
     grid-template-columns: 1fr;
-  }
-
-  .bento-grid {
-    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1248,7 +1284,7 @@
   }
 
   .temp-value {
-    font-size: 50px;
+    font-size: 3.8rem;
   }
 
   .forecast-row {

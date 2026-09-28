@@ -97,7 +97,7 @@ export const HourlyChart = () => {
               cx={pt.x}
               cy={pt.y}
               r={hoveredIdx === idx ? 6 : (pt.isNow ? 4 : 2.5)}
-              fill={hoveredIdx === idx ? '#f59e0b' : '#ffffff'}
+              fill={hoveredIdx === idx ? '#f59e0b' : 'white'}
               stroke="#0284c7"
               strokeWidth="2"
               style={{ cursor: 'pointer' }}
